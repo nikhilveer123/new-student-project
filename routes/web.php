@@ -30,7 +30,7 @@ Route::prefix('student')->middleware('auth')->group(function () {
     Route::get('{student}/edit', [StudentController::class, 'edit'])->name('student.edit');
     Route::put('{student}', [StudentController::class, 'update'])->name('student.update');
     Route::get('{student}', [StudentController::class, 'show'])->name('student.show');
-    Route::delete('{student}', [StudentController::class, 'destroy'])->name('student.destroy');
+    Route::delete('{student}', [StudentController::class, 'deleteStudent'])->name('student.destroy');
 });
 
 
