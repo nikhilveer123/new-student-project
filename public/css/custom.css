@@ -1,0 +1,51 @@
+/* public/css/custom.css */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.detail-item {
+    font-size: 1rem; /* Increased font size for better readability */
+    padding: 0.75rem; /* Slightly increased padding */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 4px;
+}
+
+.detail-item strong {
+    color: #333; /* Slightly darker text for labels */
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .detail-item {
+        font-size: 0.9rem; /* Adjusted font size for smaller screens */
+    }
+
+    .dropdown-toggle {
+        background-color: white !important; /* Set background to white */
+        color: black !important; /* Change text color to black */
+        border: 1px solid #ced4da; /* Optional: Add border for better visibility */
+        text-align: center; /* Center the text/icon */
+        width: 100%; /* Make the button full width to help with centering */
+    }
+
+    .dropdown-toggle i {
+        margin: 0 auto; /* Center the icon */
+        display: block; /* Make the icon a block element */
+    }
+
+    .dropdown-toggle:hover {
+        background-color: #f8f9fa; /* Change background on hover */
+    }
+
+}
