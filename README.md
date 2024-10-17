@@ -19,4 +19,4 @@ A web application built with Laravel for managing student records. It includes f
 ### Steps to Install
 1. Clone the repository:
    ```bash
-   git clone https://github.com/nikhilveer123/laravel-student-project.git
+   git clone https://github.com/nikhilveer123/new-student-project
