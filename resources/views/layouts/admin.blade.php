@@ -55,7 +55,7 @@
                             </a>
                             <ul id="teacherSubmenu" class="nav flex-column collapse">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">
+                                    <a class="nav-link" href="{{ route('teacher.index') }}">
                                         <i class="fas fa-list"></i> All Teacher
                                     </a>
                                 </li>
