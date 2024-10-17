@@ -8,29 +8,30 @@
     <style>
         body {
             display: flex;
-            justify-content: flex-start; /* Aligns items to the start (left) */
-            align-items: center;
             height: 100vh;
-            margin: 0; /* Remove default margin */
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden; /* Prevents scrolling */
+        }
+
+        .background-image {
+            flex: 1; /* Takes the remaining space */
             background-image: url('../images/student.jpg'); /* Ensure the path is correct */
-            background-size: cover; /* Change to cover to fill the area */
+            background-size: cover; /* Fills the area */
             background-repeat: no-repeat; /* Prevents image from repeating */
-            background-position: center; /* Center the image */
+            background-position: center; /* Centers the image */
         }
 
         .login-container {
-            background: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+            background: rgba(255, 255, 255, 0.9);
             padding: 3rem;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             width: 350px;
-            max-width: 90%; /* Responsive max width */
-            margin-left: 53rem; /* Adjusted left margin for better alignment */
-            display: flex; /* Added flex for centering the button */
-            flex-direction: column; /* Column layout */
-            align-items: center; /* Center items */
+            max-width: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
         }
 
         h1 {
@@ -38,27 +39,28 @@
             text-align: center;
         }
 
-        input[type="email"], input[type="password"] {
+        input[type="email"], input[type="password"], input[type="tel"] {
             width: 100%;
-            padding: 12px; /* Increased padding for inputs */
-            margin: 10px 0;
+            padding: 12px;
+            margin: 10px 0; /* Space between fields */
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Added shadow for input */
         }
 
         button {
-            width: 100%; /* Full width */
-            padding: 8px; /* Decreased padding for button */
+            width: 108%;
+            padding: 12px;
             background-color: #28a745;
             border: none;
             border-radius: 4px;
             color: white;
-            font-size: 14px; /* Decreased font size */
+            font-size: 16px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #218838; /* Darker shade on hover */
         }
 
         .error {
@@ -66,10 +68,10 @@
             font-size: 0.9em;
             margin-bottom: 10px;
         }
-
     </style>
 </head>
 <body>
+    <div class="background-image"></div>
     <div class="login-container">
         <h1>Login</h1>
 
@@ -82,6 +84,7 @@
         <form method="POST" action="{{ url('login') }}">
             @csrf
             <input type="email" name="email" placeholder="Email" required>
+
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
