@@ -22,7 +22,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-Route::prefix('student')->group(function () {
+Route::prefix('student')->middleware('auth')->group(function () {
     Route::get('/', [StudentController::class, 'index'])->name('student.index');
     Route::get('/create', [StudentController::class, 'create'])->name('student.create');
     Route::post('/', [StudentController::class, 'store'])->name('student.store');

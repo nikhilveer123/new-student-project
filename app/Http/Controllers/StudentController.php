@@ -44,6 +44,8 @@ class StudentController extends Controller
             'yearly_fees' => 'required|numeric',
             'contact_no' => 'required|string|size:10|unique:students,contact_no',
             'email' => 'required|email|max:255|unique:students,email',
+        ], [
+            'teacher_id.required' => 'Teacher name is required.', // Custom error message
         ]);
 
         Student::create($request->all());
@@ -74,8 +76,10 @@ class StudentController extends Controller
             'student_name' => 'required|string|max:255',
             'admission_date' => 'required|date',
             'yearly_fees' => 'required|numeric',
-            'contact_no' => 'required|string|max:15|unique:students,contact_no,' . $student->id,
-            'email' => 'required|email|max:255|unique:students,email,' . $student->id,
+            'contact_no' => 'required|string|size:10|unique:students,contact_no',
+            'email' => 'required|email|max:255|unique:students,email',
+        ], [
+            'teacher_id.required' => 'Teacher name is required.', // Custom error message
         ]);
 
 
