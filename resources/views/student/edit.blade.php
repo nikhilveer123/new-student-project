@@ -23,7 +23,7 @@
     @endif
 
     <!-- Form for Editing Student -->
-    <form action="{{ route('student.update', $student->id) }}" method="POST">
+    <form action="{{ route('student.updateStudent', $student->id) }}" method="POST">
         @csrf
         @method('PUT')
 

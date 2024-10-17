@@ -12,7 +12,7 @@
     @endif
 
     <!-- Form for Adding Student -->
-    <form action="{{ route('student.store') }}" method="POST">
+    <form action="{{ route('student.createStudent') }}" method="POST">
         @csrf
 
         <div class="form-row">

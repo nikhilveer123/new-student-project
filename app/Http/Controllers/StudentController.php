@@ -12,18 +12,11 @@ class StudentController extends Controller
 
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $students = Student::with('teacher')
-            ->when($search, function ($query) use ($search) {
-                return $query->where('student_name', 'like', '%' . $search . '%');
-            })
-            ->orderBy('created_at', 'desc')
-            ->paginate(5);
 
-        return view('student.index', compact('students', 'search'));
+        $students = Student::with('teacher')->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('student.index', compact('students'));
     }
-
-
 
 
 
@@ -35,7 +28,7 @@ class StudentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function createStudent(Request $request)
     {
         $request->validate([
             'teacher_id' => 'required|exists:teachers,id',
@@ -45,7 +38,7 @@ class StudentController extends Controller
             'contact_no' => 'required|string|size:10|unique:students,contact_no',
             'email' => 'required|email|max:255|unique:students,email',
         ], [
-            'teacher_id.required' => 'Teacher name is required.', // Custom error message
+            'teacher_id.required' => 'Teacher name is required.',
         ]);
 
         Student::create($request->all());
@@ -53,12 +46,6 @@ class StudentController extends Controller
     }
 
 
-
-
-    public function show(Student $student)
-    {
-        return view('student.show', compact('student'));
-    }
 
 
     public function edit(Student $student)
@@ -69,7 +56,7 @@ class StudentController extends Controller
 
 
 
-    public function update(Request $request, Student $student)
+    public function updateStudent(Request $request, Student $student)
     {
 
         $request->validate([
@@ -77,10 +64,10 @@ class StudentController extends Controller
             'student_name' => 'required|string|max:255',
             'admission_date' => 'required|date',
             'yearly_fees' => 'required|numeric',
-            'contact_no' => 'required|string|size:10|unique:students,contact_no',
-            'email' => 'required|email|max:255|unique:students,email',
+            'contact_no' => 'required|string|size:10',
+            'email' => 'required|email',
         ], [
-            'teacher_id.required' => 'Teacher name is required.', // Custom error message
+            'teacher_id.required' => 'Teacher name is required.',
         ]);
 
 
@@ -95,6 +82,12 @@ class StudentController extends Controller
 
 
         return redirect()->route('student.index')->with('success', 'Student updated successfully.');
+    }
+
+
+    public function viewStudent(Student $student)
+    {
+        return view('student.show', compact('student'));
     }
 
 

@@ -54,7 +54,7 @@
                     <a href="{{ route('student.edit', $student->id) }}" class="btn btn-warning btn-sm" title="Edit Student">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="{{ route('student.show', $student->id) }}" class="btn btn-info btn-sm" title="View Student">
+                    <a href="{{ route('student.viewStudent', $student->id) }}" class="btn btn-info btn-sm" title="View Student">
                         <i class="fas fa-eye"></i>
                     </a>
                     <form action="{{ route('student.destroy', $student->id) }}" method="POST" style="display:inline;">
