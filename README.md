@@ -16,6 +16,10 @@ A web application built with Laravel for managing student records. It includes f
 - Composer
 - Laravel
 
+## Login 
+ Email - mitali13@gmail.com
+ password - Mitu@123
+
 ### Steps to Install
 1. Clone the repository:
    ```bash
