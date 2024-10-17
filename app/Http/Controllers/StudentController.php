@@ -68,6 +68,7 @@ class StudentController extends Controller
     }
 
 
+
     public function update(Request $request, Student $student)
     {
 
